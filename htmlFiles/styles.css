@@ -1,0 +1,54 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+li{
+	padding-bottom: 10px;
+	font-size: 30px;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+a{
+	color:red;
+}
+
+.clr{
+	clear:both;
+}
+
+.title{
+	text-align: center;
+}
+
+.top-half{
+	height: 300px;
+}
+
+.srm-title{
+	font-size: 50px;
+	color:red;
+}
+
+.srm-exams{
+	float:left;
+	width:33%;
+}
+
+.srm-chapters{
+	list-style:none;
+}
+
+.bottom-half{
+	overflow: hidden;
+	height: 600px;
+}
+
+
+
+.container{
+	background-color: black;
+}
