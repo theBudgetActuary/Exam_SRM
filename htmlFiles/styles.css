@@ -1,0 +1,112 @@
+
+*{
+	margin:0;
+	padding:0;
+}
+
+a{
+	text-decoration: none;
+	color:white;
+}
+
+ul{
+		list-style:none;
+		font-size: 25px;
+		text-align: left;
+
+}
+
+li{
+	padding-bottom: 5px;
+}
+
+h1{
+	color:red;
+}
+
+h3{
+	font-size:30px;
+	font-weight: bold;
+	color:red;
+}
+
+h4{
+	color:red;
+}
+
+p{
+	font-size: 30px;
+}
+
+.clr{
+	clear:both;
+}
+
+.chapternum{
+	font-size:30px
+}
+
+.each-section{
+	padding-bottom: 5px;
+}
+
+.chapter-summary{
+	padding-top:30px;
+	font-size:50px;
+}
+
+.top-half{
+	display:inline-block;
+	padding-bottom:100px;
+	color:white;
+}
+
+.youtube-videos{
+	float:left;
+	width:25%;
+	border-top: 1px yellow solid;
+	border-left:1px yellow solid;
+	border-bottom: 1px yellow solid;
+	box-sizing:border-box;
+	flex: 1;
+}
+
+.chapter-notes{
+	float:left;
+	width:25%;
+	border:1px yellow solid;
+	box-sizing:border-box;
+	flex: 1;
+
+}
+
+.practice-problems{
+	float:left;
+	width:25%;
+	border:1px yellow solid;
+	box-sizing:border-box;
+	flex: 1;
+}
+
+.practice-problems-videos{
+	float:left;
+	width:25%;
+	border:1px yellow solid;
+	box-sizing:border-box;
+	flex: 1;
+}
+
+.bottom-half{
+	color:orange;
+	overflow:hidden;
+	display: flex;
+}
+
+.footer{
+	height:100px;
+}
+
+.container{
+	background-color: black;
+}
+
