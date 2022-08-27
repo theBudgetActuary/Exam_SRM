@@ -881,11 +881,8 @@ different values.</p>
   
 </table>
 </div>
-<p>Below we converted season to dummy variables. The one variable of
-season is converted into the number of levels - 1 binary variables. For
-instance, season has 4 levels so it is converted into 3 dummy variables.
-If a variable had only 2 levels it would be made into 1 dummy
-variable.</p>
+<p>Below we converted the four levels from season into dummy
+variables.</p>
 <div id="gqycbeoojv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
@@ -1303,6 +1300,7 @@ variable.</p>
   <thead class="gt_col_headings">
     <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">temperature</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">seasonfall</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">seasonspring</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">seasonsummer</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">seasonwinter</th>
@@ -1312,32 +1310,40 @@ variable.</p>
     <tr><td class="gt_row gt_right">11.89401</td>
 <td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">1</td></tr>
     <tr><td class="gt_row gt_right">38.93231</td>
+<td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">1</td>
 <td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">0</td></tr>
     <tr><td class="gt_row gt_right">86.19397</td>
 <td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">1</td>
 <td class="gt_row gt_right">0</td></tr>
     <tr><td class="gt_row gt_right" style="background-color: #FFFF00;">34.18598</td>
+<td class="gt_row gt_right" style="background-color: #FFFF00;">1</td>
 <td class="gt_row gt_right" style="background-color: #FFFF00;">0</td>
 <td class="gt_row gt_right" style="background-color: #FFFF00;">0</td>
 <td class="gt_row gt_right" style="background-color: #FFFF00;">0</td></tr>
     <tr><td class="gt_row gt_right">34.16144</td>
 <td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">1</td></tr>
     <tr><td class="gt_row gt_right">75.34560</td>
+<td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">1</td>
 <td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">0</td></tr>
     <tr><td class="gt_row gt_right">87.41792</td>
 <td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
 <td class="gt_row gt_right">1</td>
 <td class="gt_row gt_right">0</td></tr>
     <tr><td class="gt_row gt_right" style="background-color: #FFFF00;">47.52836</td>
+<td class="gt_row gt_right" style="background-color: #FFFF00;">1</td>
 <td class="gt_row gt_right" style="background-color: #FFFF00;">0</td>
 <td class="gt_row gt_right" style="background-color: #FFFF00;">0</td>
 <td class="gt_row gt_right" style="background-color: #FFFF00;">0</td></tr>
@@ -1346,19 +1352,22 @@ variable.</p>
   
 </table>
 </div>
-<p>The season levels are given a value of 1 if it is that season, and a
-value of 0 otherwise. Notice however, that there is no variable for
-fall. This is because adding a fourth variable is redundant since we can
-say that when the season of spring, summer, and winter is 0, then it
-must be fall. This is the same as saying that the season <em>fall</em>
-represents the <strong>baseline</strong> predictor. These rows are
-represented in yellow.</p>
-<p>Multiple linear regression requires the categorical predictors to be
-made into dummy variables. From the data set above a linear regression
-equation would take the following format: <span class="math inline">\(avgTemperature = 63 - 10*spring + 25*summer -
-37*winter\)</span>. Notice that the same way that fall was not given a
-dummy variable, it is also not represented in the linear regression
-equation. Instead, fall is represented in the intercept term.</p>
+<p>The dummy variables are given a value of 1 if it is that season, and
+a value of 0 otherwise. Multiple linear regression requires the
+categorical predictors to be made into dummy variables. Only 3 of the
+levels will be given a parameter estimate in the MLR equation. This is
+because adding a fourth level is redundant since we can say that when
+the season of spring, summer, and winter is 0, then it must be fall.
+This means for any categorical variable one level is dropped in MLR. The
+level that is dropped, in this case the season <em>fall</em>, represents
+the <strong>baseline</strong> predictor. These rows are represented in
+yellow. The baseline level <em>fall</em> is represented in the intercept
+term.</p>
+<p>The linear regression equation that would form with fall as the
+baseline would be: <span class="math inline">\(avgTemperature = 63 -
+10*spring + 25*summer - 37*winter\)</span>. Notice that fall does not
+appear in the multiple linear regression equation. Instead, fall is
+represented in the intercept term.</p>
 <p>Since categorical variables cannot increase incrementally like
 numeric predictors they are instead entered in the model as their mean
 values, or in this case the mean temperature per season. The red X’s
@@ -1392,15 +1401,19 @@ equation becomes <span class="math inline">\(avgTemperature = 26 +
 27*spring + 62*summer + 37*fall + 5*humidity\)</span>. This equation can
 be broken down into 4 separate equations based off which season it
 is:</p>
-<p>Winter: <span class="math inline">\(avgTemperature = \beta_{0} +
+<p><strong>Winter:</strong></p>
+<p><span class="math inline">\(avgTemperature = \beta_{0} +
 \beta_{4}*humidity \rightarrow 26 + 5*humidity\)</span></p>
-<p>Spring: <span class="math inline">\(avgTemperature = \beta_{0} +
+<p><strong>Spring:</strong></p>
+<p><span class="math inline">\(avgTemperature = \beta_{0} +
 \beta_{1}*spring + \beta_{4}*humidity \rightarrow 26 + 27*spring +
 5*humidity\)</span></p>
-<p>Summer: <span class="math inline">\(avgTemperature = \beta_{0} +
+<p><strong>Summer:</strong></p>
+<p><span class="math inline">\(avgTemperature = \beta_{0} +
 \beta_{2}*summer + \beta_{4}*humidity \rightarrow 26 + 62*summer +
 5*humidity\)</span></p>
-<p>Fall: <span class="math inline">\(avgTemperature = \beta_{0} +
+<p><strong>Fall:</strong></p>
+<p><span class="math inline">\(avgTemperature = \beta_{0} +
 \beta_{3}*fall + \beta_{4}*humidity \rightarrow 26 + 37*fall +
 5*humidity\)</span></p>
 </div>
