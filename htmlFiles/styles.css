@@ -64,7 +64,7 @@ p{
 
 .youtube-videos{
 	float:left;
-	width:33%;
+	width:50%;
 	border-top: 1px yellow solid;
 	border-left:1px yellow solid;
 	border-bottom: 1px yellow solid;
@@ -74,21 +74,12 @@ p{
 
 .chapter-notes{
 	float:left;
-	width:34%;
+	width:50%;
 	border:1px yellow solid;
 	box-sizing:border-box;
 	flex: 1;
 
 }
-
-.practice-problems{
-	float:left;
-	width:33%;
-	border:1px yellow solid;
-	box-sizing:border-box;
-	flex: 1;
-}
-
 
 .bottom-half{
 	color:orange;
