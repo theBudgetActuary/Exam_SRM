@@ -34,12 +34,26 @@ a{
 	color:red;
 }
 
+.FAM-title{
+	font-size: 50px;
+	color:red;
+}
+
 .srm-exams{
 	float:left;
 	width:33%;
 }
 
+.FAM-exams{
+	float:left;
+	width:33%;
+}
+
 .srm-chapters{
+	list-style:none;
+}
+
+.FAM-chapters{
 	list-style:none;
 }
 
